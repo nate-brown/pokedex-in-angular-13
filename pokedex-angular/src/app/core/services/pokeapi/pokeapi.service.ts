@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, from, map } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Observable, from, map, catchError, throwError } from 'rxjs';
 import { MainClient } from 'pokenode-ts';
 
 import { Pokemon } from '../../domain';
@@ -17,8 +18,8 @@ export class PokeApiService {
         });
     }
 
-    getPokemon(id: number): Observable<Pokemon> {
-        return from(this.mainPokemonClient.pokemon.getPokemonById(id))
+    getPokemon(id: string): Observable<Pokemon> {
+        return from(this.mainPokemonClient.pokemon.getPokemonById(parseInt(id, 10)))
             .pipe(
                 map(pokemon => ({
                     id: pokemon.id,
@@ -32,7 +33,18 @@ export class PokeApiService {
                     species: pokemon.species,
                     stats: pokemon.stats,
                     types: pokemon.types
-                }))
+                })),
+                catchError(this.handleError)
             );
+    }
+
+    private handleError(error: HttpErrorResponse) {
+        if (error.status === 0) {
+            console.error('An error occurred:', error.error);
+        } else {
+            console.error(`API returned code ${error.status}, body was: `, error.error);
+        }
+  
+        return throwError(() => new Error('Something bad happened; please try again later.'));
     }
 }

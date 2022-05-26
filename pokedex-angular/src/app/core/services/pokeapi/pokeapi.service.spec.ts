@@ -29,7 +29,7 @@ describe('PokeApiService', () => {
 
 	describe('getPokemon', () => {
 		it('should return a pokemon', () => {
-			service.getPokemon(1).subscribe(pokemon => {
+			service.getPokemon('1').subscribe(pokemon => {
 				expect(pokemon).toEqual({ id: 1, name: 'bulbasaur' });
 			});
 		});
