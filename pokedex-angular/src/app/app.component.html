@@ -1,1 +1,23 @@
-<router-outlet></router-outlet>
+<mat-toolbar color="primary">
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu button">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>Home</button>
+        <button mat-menu-item>Search</button>
+        <button mat-menu-item>List all</button>
+        <button mat-menu-item>About this app</button>
+    </mat-menu>
+
+    <span>Pokédex</span>
+
+    <span class="mat-toolbar-spacer"></span>
+
+    <button mat-icon-button aria-label="Share button">
+        <mat-icon>share</mat-icon>
+    </button>
+</mat-toolbar>
+
+<main>
+    <router-outlet></router-outlet>
+</main>

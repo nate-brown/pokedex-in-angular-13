@@ -3,22 +3,22 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PokemonDetailComponent } from './detail.component';
 
 describe('PokemonDetailComponent', () => {
-	let component: PokemonDetailComponent;
-	let fixture: ComponentFixture<PokemonDetailComponent>;
+    let component: PokemonDetailComponent;
+    let fixture: ComponentFixture<PokemonDetailComponent>;
 
-	beforeEach(async () => {
-		await TestBed.configureTestingModule({
-			declarations: [ PokemonDetailComponent ]
-		}).compileComponents();
-	});
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [PokemonDetailComponent]
+        }).compileComponents();
+    });
 
-	beforeEach(() => {
-		fixture = TestBed.createComponent(PokemonDetailComponent);
-		component = fixture.componentInstance;
-		fixture.detectChanges();
-	});
+    beforeEach(() => {
+        fixture = TestBed.createComponent(PokemonDetailComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-	it('should create', () => {
-		expect(component).toBeTruthy();
-	});
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

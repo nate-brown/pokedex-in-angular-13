@@ -1,1 +1,1 @@
-export * from './pokeapi/pokeapi.service'
+export * from './pokeapi/pokeapi.service';

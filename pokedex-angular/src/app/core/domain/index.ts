@@ -1,1 +1,1 @@
-export * from './pokemon/pokemon.model'
+export * from './pokemon/pokemon.model';
